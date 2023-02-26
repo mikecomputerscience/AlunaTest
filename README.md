@@ -16,8 +16,8 @@ Aluna Automation Test
 
 1. Write a function that given the input above returns the desired identifier. ==> The function can be found at <code>
    ./Utilities/ApiHelper</code> where the function name is get_identifier
-2. Given the following API spec write automated tests to guarantee that the api works. ==> <code>pytest -s -v -m "
-   first"</code>
+2. Given the following API spec write automated tests to guarantee that the api works.
+   ==> <code>pytest -s -v -m "first"</code>
 
 ## Second exercise
 
