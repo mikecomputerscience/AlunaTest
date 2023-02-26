@@ -99,3 +99,33 @@ class Test_HomePage(BaseTest):
             print('However, actual title is ' + actual_title)
             print('Fail: test_homepage_invalid_id_0. Reason: title mismatch.')
             assert False
+
+    @pytest.mark.ui
+    @pytest.mark.third
+    def test_homepage_empty_string(self):
+        self.home_page = HomePage(self.driver)
+        time.sleep(1)
+        self.home_page.enter_identifier('')
+        time.sleep(1)
+        self.home_page.click_find_patient_button()
+        time.sleep(1)
+        self.detail_page = DetailPage(self.driver)
+        actual_title = self.detail_page.get_result_title()
+        actual_detail = self.detail_page.get_result_detail()
+        expected_detail = ''
+        if TestData.DEFAULT_PATIENT_NOT_FOUND_TITLE == actual_title:
+            print("Patient NOT found! That's good for " + TestData.INVALID_ID_0 + "!")
+            if expected_detail == actual_detail:
+                print("Patient identifier " + expected_detail + "is shown on the detail page! That's good!")
+                assert True
+                print('Pass: test_homepage_empty_string')
+            else:
+                print('Expected detail is ' + expected_detail)
+                print('However, actual detail is ' + actual_detail)
+                print('Fail: test_homepage_empty_string. Reason: detail mismatch.')
+                assert False
+        else:
+            print('Expected title is ' + TestData.DEFAULT_PATIENT_NOT_FOUND_TITLE)
+            print('However, actual title is ' + actual_title)
+            print('Fail: test_homepage_empty_string. Reason: title mismatch.')
+            assert False

@@ -25,7 +25,7 @@ class Test_HomePage_DDT(BaseTest):
             name = dic['name']
             dob = dic['dob']
             gender = dic['gender']
-            self.home_page.enter_identifier(TestData.VALID_ID_0)
+            self.home_page.enter_identifier(identifier)
             time.sleep(1)
             self.home_page.click_find_patient_button()
             time.sleep(1)
